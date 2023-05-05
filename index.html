@@ -12,8 +12,7 @@
         const url = 'https://jasper.silkbank.ge/jasperserver/rest_v2/resources?type=reportUnit';
 
         const headers = {
-          'Accept': 'application/json',
-          'Accept': '*'
+          'Accept': 'application/json'
         };
 
         const options = {
@@ -23,7 +22,7 @@
 
         fetch(url, options)
           .then(response => {if (!response.ok) {
-            throw new Error(`Network response was not ok (status: ${response.status} ${response.statusText})`);
+            throw new Error(`Network response was not ok (status: ${response.status} ${response.json()})`);
     }
     return response.text();})
           .then(data => console.log('Data:', data))
